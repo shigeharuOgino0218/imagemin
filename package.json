@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "imagemin": "node imagemin.mjs"
+  },
+  "devDependencies": {
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2"
+  },
+  "dependencies": {
+    "imagemin": "^8.0.1"
+  }
+}
