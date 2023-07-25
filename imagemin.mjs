@@ -35,7 +35,6 @@ const extension = "jpg|jpeg|png";
       })
     );
 
-    // setFiles(OUT_DIR);
     const afterSumSize = await getSumSize(OUT_DIR);
     const diff = convertByte(beforeSumSize.val - afterSumSize.val);
     const percent = Math.round(((beforeSumSize.val - afterSumSize.val) / beforeSumSize.val) * 100 * 100) / 100;
