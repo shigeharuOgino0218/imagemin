@@ -61,9 +61,9 @@ const extension = "jpg|jpeg|png";
  * @returns
  */
 async function getSize(file) {
-  const stats = await fs.promises.stat(file);
-  if (stats.isFile()) {
-    return stats.size;
+  const stat = await fs.promises.stat(file);
+  if (stat.isFile()) {
+    return stat.size;
   } else {
     return 0;
   }
@@ -79,11 +79,11 @@ async function getSumSize(dir) {
     const fileNames = await fs.promises.readdir(dir);
     for (const fileName of fileNames) {
       const filePath = path.join(dir, fileName);
-      const stats = await fs.promises.stat(filePath);
-      if (stats.isFile()) {
+      const stat = await fs.promises.stat(filePath);
+      if (stat.isFile()) {
         if (!new RegExp(`.(${extension})$`).test(fileName)) continue;
         files.push(filePath.replace(/\\/g, "/"));
-      } else if (stats.isDirectory()) {
+      } else if (stat.isDirectory()) {
         await setFiles(filePath);
       }
     }
